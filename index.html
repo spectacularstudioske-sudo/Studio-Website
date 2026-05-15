@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spectacular Studios - Professional Video Editing</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/tabler-icons.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #0C0C10;
+      color: #F0EFE8;
+    }
+
+    .site { background: #0C0C10; color: #F0EFE8; }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 32px; background: #0C0C10; border-bottom: 0.5px solid #1E1E28; }
+    .nav-logo { font-size: 14px; font-weight: 700; letter-spacing: 0.12em; color: #F0EFE8; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+    .nav-logo img { height: 32px; width: auto; }
+    .nav-logo span { color: #C9A84C; }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { font-size: 11px; color: #888; text-decoration: none; letter-spacing: 0.06em; cursor: pointer; transition: color 0.3s; }
+    .nav-links a:hover { color: #C9A84C; }
+    .nav-cta { background: #C9A84C; color: #0C0C10; font-size: 11px; font-weight: 700; padding: 6px 14px; border-radius: 4px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; }
+    .nav-cta:hover { opacity: 0.9; }
+
+    .hero { padding: 52px 32px 44px; background: #0C0C10; border-bottom: 0.5px solid #1E1E28; }
+    .hero-content { display: flex; justify-content: center; }
+    .hero-text { text-align: center; max-width: 600px; }
+    .hero-eyebrow { font-size: 10px; letter-spacing: 0.2em; color: #C9A84C; text-transform: uppercase; margin-bottom: 14px; }
+    .hero-h1 { font-size: 36px; font-weight: 800; line-height: 1.1; color: #F0EFE8; margin: 0 0 14px; }
+    .hero-h1 em { color: #C9A84C; font-style: normal; }
+    .hero-sub { font-size: 13px; color: #888; line-height: 1.7; margin-bottom: 24px; }
+    .hero-btns { display: flex; gap: 10px; align-items: center; margin-bottom: 36px; justify-content: center; }
+    .btn-primary { background: #C9A84C; color: #0C0C10; font-size: 11px; font-weight: 700; padding: 10px 20px; border-radius: 4px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; border: none; transition: all 0.3s; }
+    .btn-primary:hover { opacity: 0.9; }
+    .btn-ghost { border: 0.5px solid #3A3A44; color: #888; font-size: 11px; padding: 10px 20px; border-radius: 4px; letter-spacing: 0.06em; cursor: pointer; background: transparent; transition: all 0.3s; text-transform: uppercase; }
+    .btn-ghost:hover { border-color: #C9A84C; color: #C9A84C; }
+    
+    .trust-strip { display: flex; gap: 24px; padding-top: 20px; border-top: 0.5px solid #1E1E28; justify-content: center; }
+    .trust-item { font-size: 10px; color: #555; display: flex; align-items: center; gap: 6px; }
+    .trust-item strong { color: #C9A84C; font-size: 13px; display: block; }
+
+    .section { padding: 36px 32px; border-bottom: 0.5px solid #1E1E28; }
+    .section-eyebrow { font-size: 10px; letter-spacing: 0.2em; color: #C9A84C; text-transform: uppercase; margin-bottom: 8px; }
+    .section-h2 { font-size: 20px; font-weight: 700; color: #F0EFE8; margin: 0 0 6px; }
+    .section-sub { font-size: 12px; color: #666; margin: 0 0 24px; }
+    
+    .services-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .svc-card { background: #141418; border: 0.5px solid #2A2A30; border-radius: 8px; padding: 16px; cursor: pointer; transition: all 0.3s; }
+    .svc-card:hover { border-color: #C9A84C; background: #1a1a1f; }
+    .svc-icon { width: 28px; height: 28px; background: #1E1E28; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-bottom: 10px; color: #C9A84C; font-size: 15px; }
+    .svc-title { font-size: 12px; font-weight: 700; color: #F0EFE8; margin-bottom: 4px; }
+    .svc-desc { font-size: 10px; color: #666; line-height: 1.5; margin-bottom: 8px; }
+    .svc-price { font-size: 11px; color: #C9A84C; font-weight: 700; }
+
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+    .step { padding: 0 16px 0 0; position: relative; }
+    .step:not(:last-child)::after { content: ''; position: absolute; right: 0; top: 14px; width: 1px; height: 28px; background: #2A2A30; }
+    .step-num { font-size: 10px; color: #C9A84C; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 6px; }
+    .step-title { font-size: 12px; font-weight: 700; color: #F0EFE8; margin-bottom: 4px; }
+    .step-desc { font-size: 10px; color: #666; line-height: 1.5; }
+
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .price-card { background: #141418; border: 0.5px solid #2A2A30; border-radius: 8px; padding: 18px; }
+    .price-card.featured { border: 1.5px solid #C9A84C; }
+    .price-badge { font-size: 9px; background: #C9A84C; color: #0C0C10; padding: 2px 8px; border-radius: 99px; font-weight: 700; letter-spacing: 0.08em; display: inline-block; margin-bottom: 10px; text-transform: uppercase; }
+    .price-tier { font-size: 11px; color: #888; margin-bottom: 4px; letter-spacing: 0.06em; text-transform: uppercase; }
+    .price-amount { font-size: 24px; font-weight: 800; color: #F0EFE8; margin-bottom: 2px; }
+    .price-amount span { font-size: 12px; color: #555; font-weight: 400; }
+    .price-desc { font-size: 10px; color: #666; margin-bottom: 12px; line-height: 1.5; }
+    .price-features { list-style: none; padding: 0; margin: 0 0 14px; }
+    .price-features li { font-size: 10px; color: #888; padding: 3px 0; display: flex; align-items: center; gap: 6px; }
+    .price-features li::before { content: ''; width: 4px; height: 4px; border-radius: 50%; background: #C9A84C; flex-shrink: 0; }
+    .price-btn { width: 100%; padding: 8px; border-radius: 4px; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-align: center; text-transform: uppercase; cursor: pointer; border: none; transition: all 0.3s; }
+    .price-btn.gold { background: #C9A84C; color: #0C0C10; }
+    .price-btn.gold:hover { opacity: 0.9; }
+    .price-btn.outline { border: 0.5px solid #3A3A44; color: #888; background: transparent; }
+    .price-btn.outline:hover { border-color: #C9A84C; color: #C9A84C; }
+
+    .testimonial { background: #141418; border-radius: 8px; padding: 24px; border-left: 3px solid #C9A84C; }
+    .testi-quote { font-size: 14px; color: #D0CFC8; line-height: 1.7; font-style: italic; margin-bottom: 14px; }
+    .testi-name { font-size: 11px; font-weight: 700; color: #F0EFE8; }
+    .testi-handle { font-size: 10px; color: #666; }
+    .stars { color: #C9A84C; font-size: 12px; margin-bottom: 10px; letter-spacing: 2px; }
+
+    .cta-section { padding: 40px 32px; text-align: center; background: #0C0C10; }
+    .cta-h2 { font-size: 22px; font-weight: 800; color: #F0EFE8; margin-bottom: 8px; }
+    .cta-h2 em { color: #C9A84C; font-style: normal; }
+    .cta-sub { font-size: 12px; color: #666; margin-bottom: 24px; }
+    .cta-btns { display: flex; gap: 10px; justify-content: center; }
+    .wa-btn { background: #25D366; color: #fff; font-size: 11px; font-weight: 700; padding: 10px 20px; border-radius: 4px; display: flex; align-items: center; gap: 6px; text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer; border: none; transition: all 0.3s; text-decoration: none; }
+    .wa-btn:hover { background: #C9A84C; color: #0C0C10; }
+
+    .carousel-section { padding: 40px 32px; max-width: 1200px; margin: 0 auto; }
+    .carousel-container { display: flex; align-items: center; justify-content: center; gap: 20px; position: relative; }
+    .carousel-prev, .carousel-next { background: #141418; border: 0.5px solid #2A2A30; color: #C9A84C; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s; }
+    .carousel-prev:hover, .carousel-next:hover { border-color: #C9A84C; background: #1a1a1f; }
+    .carousel-slide { flex: 1; text-align: center; }
+    .client-image { width: 120px; height: 120px; border-radius: 50%; background: linear-gradient(135deg, #1E1E28 0%, #2A2A30 100%); margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 48px; }
+    .client-name { font-size: 16px; font-weight: 700; color: #F0EFE8; margin-bottom: 8px; }
+    .client-message { font-size: 13px; color: #D0CFC8; line-height: 1.6; font-style: italic; }
+    .carousel-stars { color: #C9A84C; font-size: 14px; margin-bottom: 8px; letter-spacing: 2px; }
+    
+    .btn-leave-review { background: #C9A84C; color: #0C0C10; font-size: 11px; font-weight: 700; padding: 10px 20px; border-radius: 4px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; border: none; transition: all 0.3s; display: flex; align-items: center; gap: 6px; margin-left: auto; margin-right: auto; }
+    .btn-leave-review:hover { opacity: 0.9; }
+    
+    .footer { background: #0A0A0E; padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid #1E1E28; }
+    .footer-brand { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #444; text-transform: uppercase; }
+    .footer-tagline { font-size: 10px; color: #333; font-style: italic; }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <div class="nav">
+      <div class="nav-logo" onclick="goHome()"><img src="./Images and fIles/Spectacular Studios Logo.png" alt="Spectacular Studios Logo">Spectacular <span>Studios</span></div>
+      <div class="nav-links">
+        <a href="work.html" id="nav-work">Work</a>
+        <a href="#services" id="nav-services">Services</a>
+        <a href="#pricing" id="nav-pricing">Pricing</a>
+        <a href="about-us.html" id="nav-about">About</a>
+      </div>
+      <div class="nav-cta" onclick="goToAbout()">Contact us</div>
+    </div>
+
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <div class="hero-eyebrow">Professional video editing studio</div>
+          <h1 class="hero-h1">Your footage.<br><em>Remarkable</em><br>results.</h1>
+          <p class="hero-sub">Motion-rich, concept-driven editing for creators who refuse to slow down. Built on After Effects and Premiere Pro.</p>
+          <div class="hero-btns">
+            <div class="btn-ghost" onclick="goToWork()">View our work</div>
+          </div>
+          <div class="trust-strip">
+            <div class="trust-item"><strong>48hr</strong>avg turnaround</div>
+            <div class="trust-item"><strong>AE + PP</strong>motion-first editing</div>
+            <div class="trust-item"><strong>Global</strong>remote studio</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="services">
+      <div class="section-eyebrow">What we do</div>
+      <h2 class="section-h2">Services built for creators</h2>
+      <p class="section-sub">Every format. Every platform. No compromise.</p>
+      <div class="services-grid">
+        <div class="svc-card" onclick="sendWhatsAppMessage('Long-form YouTube')">
+          <div class="svc-icon"><i class="ti ti-brand-youtube" aria-hidden="true"></i></div>
+          <div class="svc-title">Long-form YouTube</div>
+          <div class="svc-desc">8–60 min edits with motion graphics and full sound design.</div>
+          <div class="svc-price">From $100</div>
+        </div>
+        <div class="svc-card" onclick="sendWhatsAppMessage('Shorts & Reels')">
+          <div class="svc-icon"><i class="ti ti-device-mobile" aria-hidden="true"></i></div>
+          <div class="svc-title">Shorts & Reels</div>
+          <div class="svc-desc">Punchy sub-90 second cuts optimised for vertical formats.</div>
+          <div class="svc-price">From $20</div>
+        </div>
+        <div class="svc-card" onclick="sendWhatsAppMessage('Motion Graphics')">
+          <div class="svc-icon" style="background:#C9A84C22;"><i class="ti ti-vector-bezier" aria-hidden="true" style="color:#C9A84C;"></i></div>
+          <div class="svc-title">Motion Graphics</div>
+          <div class="svc-desc">After Effects animations that make your message land harder.</div>
+          <div class="svc-price" style="color:#C9A84C;">Signature service</div>
+        </div>
+        <div class="svc-card" onclick="sendWhatsAppMessage('Adverts & Docs')">
+          <div class="svc-icon"><i class="ti ti-video" aria-hidden="true"></i></div>
+          <div class="svc-title">Adverts & Docs</div>
+          <div class="svc-desc">Brand ads and documentary-style edits for commercial use.</div>
+          <div class="svc-price">Custom quote</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-eyebrow">The process</div>
+      <h2 class="section-h2">Simple. Four steps.</h2>
+      <p class="section-sub">No confusion. No back-and-forth. Just results.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">01 — Upload</div>
+          <div class="step-title">Send your footage</div>
+          <div class="step-desc">Upload to Google Drive or WeTransfer. Share the link on WhatsApp.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">02 — Brief</div>
+          <div class="step-title">Fill your project brief</div>
+          <div class="step-desc">Style references, audience, tone, and your deadline.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">03 — Edit</div>
+          <div class="step-title">We get to work</div>
+          <div class="step-desc">Progress update at the halfway mark. No silence.</div>
+        </div>
+        <div class="step">
+          <div class="step-num">04 — Deliver</div>
+          <div class="step-title">Ready to publish</div>
+          <div class="step-desc">Delivered to your Drive folder. One revision included.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section" id="pricing">
+      <div class="section-eyebrow">Pricing</div>
+      <h2 class="section-h2">Transparent. No surprises.</h2>
+      <p class="section-sub">Pick your format. We handle the rest. Click to start your project.</p>
+      <div class="pricing-grid">
+        <div class="price-card" style="cursor: pointer; transition: all 0.3s;" onclick="sendWhatsAppPricing('Shorts & Reels', '$20 - $35')">
+          <div class="price-tier">Shorts & Reels</div>
+          <div class="price-amount">$20 <span>– $35</span></div>
+          <div class="price-desc">Under 90 seconds. Vertical or horizontal.</div>
+          <ul class="price-features">
+            <li>Captions & sound design</li>
+            <li>Colour grade included</li>
+            <li>48hr turnaround</li>
+          </ul>
+          <button class="price-btn outline">Get started</button>
+        </div>
+        <div class="price-card featured" style="cursor: pointer; transition: all 0.3s;" onclick="sendWhatsAppPricing('Standard YouTube', '$100 - $180')">
+          <div class="price-badge">Most popular</div>
+          <div class="price-tier">Standard YouTube</div>
+          <div class="price-amount">$100 <span>– $180</span></div>
+          <div class="price-desc">8 to 20 minute videos with motion graphics.</div>
+          <ul class="price-features">
+            <li>Full After Effects motion</li>
+            <li>Thumbnail design add-on</li>
+            <li>One revision included</li>
+          </ul>
+          <button class="price-btn gold">Get started</button>
+        </div>
+        <div class="price-card" style="cursor: pointer; transition: all 0.3s;" onclick="sendWhatsAppPricing('Long-form', '$180 - $320')">
+          <div class="price-tier">Long-form</div>
+          <div class="price-amount">$180 <span>– $320</span></div>
+          <div class="price-desc">20 to 60 minute edits for deep-dive content.</div>
+          <ul class="price-features">
+            <li>Chapter markers & pacing</li>
+            <li>Full sound mix</li>
+            <li>Priority turnaround</li>
+          </ul>
+          <button class="price-btn outline">Get started</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-eyebrow">Client reviews</div>
+      <h2 class="section-h2">What creators are saying</h2>
+      <p class="section-sub" style="margin-bottom:24px;">Real feedback from our community.</p>
+      <div class="carousel-container">
+        <button class="carousel-prev" onclick="prevSlide()"><i class="ti ti-chevron-left" aria-hidden="true"></i></button>
+        <div class="carousel-slide">
+          <div class="carousel-stars" id="clientRating">★★★★★</div>
+          <div class="client-image" id="clientImage">😊</div>
+          <div class="client-name" id="clientName">Client Name</div>
+          <div class="client-message" id="clientMessage">Client testimonial will appear here. We're waiting for your amazing feedback!</div>
+          <button class="btn-leave-review" onclick="leaveReview()" style="margin-top: 20px;">
+            <i class="ti ti-edit" aria-hidden="true"></i>
+            Leave a Review
+          </button>
+        </div>
+        <button class="carousel-next" onclick="nextSlide()"><i class="ti ti-chevron-right" aria-hidden="true"></i></button>
+      </div>
+    </div>
+
+    <div class="cta-section">
+      <h2 class="cta-h2">Stop sitting on <em>raw footage.</em></h2>
+      <p class="cta-sub">Send us your files today. We'll send back something worth posting.</p>
+      <div class="cta-btns">
+        <a class="wa-btn" href="https://wa.me/254112175140" target="_blank">
+          <i class="ti ti-brand-whatsapp" aria-hidden="true"></i>
+          WhatsApp us now
+        </a>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">Spectacular Studios</div>
+      <div class="footer-tagline">Where Raw Becomes Remarkable</div>
+      <div style="font-size:10px; color:#333;">© 2025</div>
+    </div>
+  </div>
+
+  <script>
+    let clients = [];
+    let currentSlide = 0;
+
+    // Load reviews from localStorage on page load
+    function loadReviews() {
+      const savedReviews = localStorage.getItem('spectacularReviews');
+      if (savedReviews) {
+        clients = JSON.parse(savedReviews);
+      }
+      
+      // If no reviews, show default message
+      if (clients.length === 0) {
+        clients = [{ name: "Client Name", message: "Share your amazing feedback here!", emoji: "😊", rating: 5 }];
+      }
+      
+      updateCarousel();
+    }
+
+    function sendWhatsAppMessage(service) {
+      const message = `Hi Spectacular studios i need a ${service} How do we proceed?`;
+      const encodedMessage = encodeURIComponent(message);
+      window.open(`https://wa.me/254112175140?text=${encodedMessage}`, '_blank');
+    }
+
+    function goToAbout() {
+      window.location.href = 'about-us.html';
+    }
+
+    function goToWork() {
+      window.location.href = 'work.html';
+    }
+
+    function goHome() {
+      window.location.href = 'index.html';
+    }
+
+    function sendWhatsAppPricing(tier, price) {
+      const message = `Hi Spectacular Studios! I'm interested in the ${tier} package (${price}). Can you tell me more about this service?`;
+      const encodedMessage = encodeURIComponent(message);
+      window.open(`https://wa.me/254112175140?text=${encodedMessage}`);
+    }
+
+    function setActiveNavLink() {
+      document.getElementById('nav-home').style.color = '#888888';
+      document.getElementById('nav-work').style.color = '#888888';
+      document.getElementById('nav-services').style.color = '#888888';
+      document.getElementById('nav-pricing').style.color = '#888888';
+      document.getElementById('nav-about').style.color = '#888888';
+      
+      const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+      if (currentPage === 'index.html' || currentPage === '') {
+        document.getElementById('nav-home').style.color = '#C9A84C';
+      }
+    }
+
+    function leaveReview() {
+      window.location.href = 'review.html';
+    }
+
+    window.addEventListener('load', setActiveNavLink);
+
+    function updateCarousel() {
+      if (clients.length > 0) {
+        const client = clients[currentSlide];
+        document.getElementById('clientName').textContent = client.name;
+        document.getElementById('clientMessage').textContent = client.message;
+        document.getElementById('clientImage').textContent = client.emoji;
+        
+        // Display star rating
+        const ratingDisplay = document.getElementById('clientRating');
+        const rating = client.rating || 5;
+        ratingDisplay.textContent = '★'.repeat(rating);
+      }
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % clients.length;
+      updateCarousel();
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + clients.length) % clients.length;
+      updateCarousel();
+    }
+
+    // Load reviews when page loads
+    window.addEventListener('load', loadReviews);
+  </script>
+</body>
+</html>

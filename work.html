@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Work - Spectacular Studios</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons@latest/tabler-icons.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #0C0C10;
+      color: #F0EFE8;
+    }
+
+    .site { background: #0C0C10; color: #F0EFE8; }
+    .nav { display: flex; justify-content: space-between; align-items: center; padding: 16px 32px; background: #0C0C10; border-bottom: 0.5px solid #1E1E28; }
+    .nav-logo { font-size: 14px; font-weight: 700; letter-spacing: 0.12em; color: #F0EFE8; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+    .nav-logo img { height: 32px; width: auto; }
+    .nav-logo span { color: #C9A84C; }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { font-size: 11px; color: #888; text-decoration: none; letter-spacing: 0.06em; cursor: pointer; transition: color 0.3s; }
+    .nav-links a:hover { color: #C9A84C; }
+    .nav-cta { background: #C9A84C; color: #0C0C10; font-size: 11px; font-weight: 700; padding: 6px 14px; border-radius: 4px; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: all 0.3s; }
+    .nav-cta:hover { opacity: 0.9; }
+
+    .work-header { padding: 52px 32px; background: #0C0C10; border-bottom: 0.5px solid #1E1E28; text-align: center; }
+    .work-title { font-size: 36px; font-weight: 800; margin-bottom: 14px; color: #F0EFE8; }
+    .work-subtitle { font-size: 14px; color: #888; max-width: 600px; margin: 0 auto; line-height: 1.7; }
+
+    .work-section { padding: 40px 32px; }
+    .portfolio-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; max-width: 1200px; margin: 0 auto; }
+    
+    .portfolio-item { background: #141418; border: 0.5px solid #2A2A30; border-radius: 8px; overflow: hidden; transition: all 0.3s; cursor: pointer; }
+    .portfolio-item:hover { border-color: #C9A84C; transform: translateY(-4px); }
+    
+    .portfolio-placeholder { width: 100%; height: 200px; background: linear-gradient(135deg, #1E1E28 0%, #2A2A30 100%); display: flex; align-items: center; justify-content: center; }
+    .portfolio-video { width: 100%; height: 200px; background: #000; display: flex; align-items: center; justify-content: center; }
+    .portfolio-video video { width: 100%; height: 100%; object-fit: cover; }
+    
+    .portfolio-content { padding: 20px; }
+    .portfolio-category { font-size: 10px; color: #C9A84C; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 6px; }
+    .portfolio-title { font-size: 14px; font-weight: 700; color: #F0EFE8; margin-bottom: 8px; }
+    .portfolio-desc { font-size: 11px; color: #888; line-height: 1.6; margin-bottom: 12px; }
+    .portfolio-link { color: #C9A84C; font-size: 11px; font-weight: 700; text-decoration: none; display: flex; align-items: center; gap: 4px; transition: all 0.3s; }
+    .portfolio-link:hover { gap: 8px; }
+
+    .cta-section { padding: 40px 32px; text-align: center; background: #0C0C10; border-top: 0.5px solid #1E1E28; }
+    .cta-h2 { font-size: 22px; font-weight: 800; color: #F0EFE8; margin-bottom: 8px; }
+    .cta-h2 em { color: #C9A84C; font-style: normal; }
+    .cta-sub { font-size: 12px; color: #666; margin-bottom: 24px; }
+    .cta-btns { display: flex; gap: 10px; justify-content: center; }
+    .wa-btn { background: #25D366; color: #fff; font-size: 11px; font-weight: 700; padding: 10px 20px; border-radius: 4px; display: flex; align-items: center; gap: 6px; text-transform: uppercase; letter-spacing: 0.06em; cursor: pointer; border: none; transition: all 0.3s; text-decoration: none; }
+    .wa-btn:hover { background: #C9A84C; color: #0C0C10; }
+    .btn-ghost { border: 0.5px solid #3A3A44; color: #888; font-size: 11px; padding: 10px 20px; border-radius: 4px; letter-spacing: 0.06em; cursor: pointer; background: transparent; transition: all 0.3s; text-transform: uppercase; text-decoration: none; display: inline-flex; align-items: center; }
+    .btn-ghost:hover { border-color: #C9A84C; color: #C9A84C; }
+
+    .footer { background: #0A0A0E; padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; border-top: 0.5px solid #1E1E28; }
+    .footer-brand { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; color: #444; text-transform: uppercase; }
+    .footer-tagline { font-size: 10px; color: #333; font-style: italic; }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <div class="nav">
+      <div class="nav-logo" onclick="goHome()"><img src="./Images and fIles/Spectacular Studios Logo.png" alt="Spectacular Studios Logo">Spectacular <span>Studios</span></div>
+      <div class="nav-links">
+        <a href="work.html" id="nav-work" style="color: #C9A84C;">Work</a>
+        <a href="index.html#services" id="nav-services">Services</a>
+        <a href="index.html#pricing" id="nav-pricing">Pricing</a>
+        <a href="about-us.html" id="nav-about">About</a>
+      </div>
+      <div class="nav-cta" onclick="goToAbout()">Contact us</div>
+    </div>
+
+    <div class="work-header">
+      <h1 class="work-title">Our <span style="color:#C9A84C;">Portfolio</span></h1>
+      <p class="work-subtitle">Take a look at some of our recent projects. From long-form YouTube edits to viral shorts, we deliver results that creators love.</p>
+    </div>
+
+    <div class="work-section">
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <div class="portfolio-video">
+            <video controls><source src="./Images and fIles/Show reel/Glovo Advert Complete.mp4" type="video/mp4"></video>
+          </div>
+          <div class="portfolio-content">
+            <div class="portfolio-category">Long-form YouTube</div>
+            <div class="portfolio-title">Tech Deep Dive Edit</div>
+            <div class="portfolio-desc">Professional video editing showcasing our motion graphics and color grading expertise.</div>
+            <a href="https://wa.me/254112175140?text=Hi%20Spectacular%20studios%20i%20need%20a%20Long-form%20YouTube%20edit%20How%20do%20we%20proceed?" target="_blank" class="portfolio-link">
+              Get Started <i class="ti ti-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-video">
+            <video controls><source src="./Images and fIles/Show reel/Central supaa.mp4" type="video/mp4"></video>
+          </div>
+          <div class="portfolio-content">
+            <div class="portfolio-category">Motion Graphics</div>
+            <div class="portfolio-title">Brand Animation Suite</div>
+            <div class="portfolio-desc">Custom After Effects animations bringing a brand story to life with seamless transitions.</div>
+            <a href="https://wa.me/254112175140?text=Hi%20Spectacular%20studios%20i%20need%20a%20Motion%20Graphics%20How%20do%20we%20proceed?" target="_blank" class="portfolio-link">
+              Get Started <i class="ti ti-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-video">
+            <video controls><source src="./Images and fIles/Show reel/Nyashinski Showman Residency .mp4" type="video/mp4"></video>
+          </div>
+          <div class="portfolio-content">
+            <div class="portfolio-category">Shorts & Reels</div>
+            <div class="portfolio-title">TikTok Trend Clips</div>
+            <div class="portfolio-desc">Quick-cut trend-based content with trending music built for maximum reach and engagement.</div>
+            <a href="https://wa.me/254112175140?text=Hi%20Spectacular%20studios%20i%20need%20a%20Shorts%20&%20Reels%20How%20do%20we%20proceed?" target="_blank" class="portfolio-link">
+              Get Started <i class="ti ti-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-video">
+            <video controls><source src="./Images and fIles/Show reel/Pipeline Impunity.mp4" type="video/mp4"></video>
+          </div>
+          <div class="portfolio-content">
+            <div class="portfolio-category">Long-form YouTube</div>
+            <div class="portfolio-title">Podcast to Video</div>
+            <div class="portfolio-desc">Podcast converted into engaging video format with B-roll integration and pacing optimization.</div>
+            <a href="https://wa.me/254112175140?text=Hi%20Spectacular%20studios%20i%20need%20a%20Long-form%20YouTube%20edit%20How%20do%20we%20proceed?" target="_blank" class="portfolio-link">
+              Get Started <i class="ti ti-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-video">
+            <video controls><source src="./Images and fIles/Show reel/Soft BG logbook loans Advert  2026_1.mp4" type="video/mp4"></video>
+          </div>
+          <div class="portfolio-content">
+            <div class="portfolio-category">Commercial Ads</div>
+            <div class="portfolio-title">Product Launch Video</div>
+            <div class="portfolio-desc">High-impact commercial with color grading, motion graphics, and professional sound mixing.</div>
+            <a href="https://wa.me/254112175140?text=Hi%20Spectacular%20studios%20i%20need%20a%20Commercial%20Ads%20How%20do%20we%20proceed?" target="_blank" class="portfolio-link">
+              Get Started <i class="ti ti-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="portfolio-item">
+          <div class="portfolio-placeholder">
+            <div class="portfolio-icon"><i class="ti ti-device-mobile" aria-hidden="true"></i></div>
+          </div>
+          <div class="portfolio-content">
+            <div class="portfolio-category">Shorts & Reels</div>
+            <div class="portfolio-title">Viral Reel Series</div>
+            <div class="portfolio-desc">Highly engaging 60-second cuts optimized for Instagram Reels with dynamic transitions.</div>
+            <a href="https://wa.me/254112175140?text=Hi%20Spectacular%20studios%20i%20need%20a%20Shorts%20&%20Reels%20How%20do%20we%20proceed?" target="_blank" class="portfolio-link">
+              Get Started <i class="ti ti-arrow-right" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-section">
+      <h2 class="cta-h2">Ready to see your <em>footage transformed?</em></h2>
+      <p class="cta-sub">Let's create something remarkable. Contact us today to discuss your project.</p>
+      <div class="cta-btns">
+        <a class="wa-btn" href="https://wa.me/254112175140" target="_blank">
+          <i class="ti ti-brand-whatsapp" aria-hidden="true"></i>
+          WhatsApp us now
+        </a>
+        <a class="btn-ghost" href="about-us.html">Get in touch</a>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer-brand">Spectacular Studios</div>
+      <div class="footer-tagline">Where Raw Becomes Remarkable</div>
+      <div style="font-size:10px; color:#333;">© 2025</div>
+    </div>
+  </div>
+
+  <script>
+    function goHome() {
+      window.location.href = 'index.html';
+    }
+
+    function goToAbout() {
+      window.location.href = 'about-us.html';
+    }
+  </script>
+</body>
+</html>
